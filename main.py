@@ -12,10 +12,11 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 
 
-
 name = ''
 surname = ''
 age = 0
+
+
 @bot.message_handler(content_types=['text'])
 def start(message):
     if message.text == '/reg':
@@ -63,8 +64,9 @@ def get_age(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
     if call.data == "yes":
-        ...
         bot.send_message(call.message.chat.id, 'Запомню : )')
     elif call.data == "no":
-        ...
+        bot.send_message(call.message.chat.id, 'Что-то не так :')
 
+
+bot.polling(none_stop=True)
