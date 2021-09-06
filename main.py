@@ -11,12 +11,9 @@ def get_text_messages(message):
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 
-
 name = ''
 surname = ''
 age = 0
-
-
 @bot.message_handler(content_types=['text'])
 def start(message):
     if message.text == '/reg':
